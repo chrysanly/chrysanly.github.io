@@ -74,7 +74,7 @@ export default function TechStack() {
     {
       category: "Languages",
       icon: Layers,
-      color: "from-purple-500 to-pink-500",
+      color: "from-blue-600 to-indigo-600",
       techs: [
         { name: "PHP", logo: "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" },
         { name: "JavaScript", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" },
@@ -114,7 +114,7 @@ export default function TechStack() {
     {
       category: "Project Management",
       icon: Users,
-      color: "from-purple-500 to-pink-500",
+      color: "from-cyan-600 to-blue-600",
       tools: [
         { name: "Jira", logo: "https://upload.wikimedia.org/wikipedia/commons/8/82/Jira_%28Software%29_logo.svg" },
         { name: "Trello", logo: "https://upload.wikimedia.org/wikipedia/en/8/8c/Trello_logo.svg" },
@@ -152,7 +152,7 @@ export default function TechStack() {
     <section id="tech-stack" className="py-20 px-6 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent animate-fade-in">
             Tech Stack
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
@@ -208,7 +208,7 @@ export default function TechStack() {
         {/* Development Tools Section */}
         <div className="mt-20" ref={toolsRef}>
           <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent">
               Development Tools
             </h3>
             <p className="text-lg text-slate-600">

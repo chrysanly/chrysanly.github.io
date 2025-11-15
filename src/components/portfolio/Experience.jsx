@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, CheckCircle } from "lucide-react";
+import { Briefcase, Calendar, CheckCircle, ArrowRight } from "lucide-react";
 
 export default function Experience() {
   const [visibleItems, setVisibleItems] = useState([]);
+  const [expandedItem, setExpandedItem] = useState(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -114,7 +115,7 @@ export default function Experience() {
     <section id="experience" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-slate-100" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
             Experience
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
@@ -123,8 +124,10 @@ export default function Experience() {
         </div>
 
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 hidden md:block"></div>
+          {/* Animated Timeline Line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-cyan-500 to-teal-500 hidden md:block overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-blue-400 to-transparent animate-pulse-line"></div>
+          </div>
 
           <div className="space-y-12">
             {experiences.map((exp, idx) => (
@@ -140,51 +143,65 @@ export default function Experience() {
                     : "opacity-0 -translate-x-20"
                 }`}
               >
-                {/* Timeline Dot */}
-                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transform -translate-x-1/2 hidden md:block shadow-lg animate-pulse"></div>
+                {/* Animated Timeline Dot */}
+                <div className="absolute left-8 md:left-1/2 w-6 h-6 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full transform -translate-x-1/2 hidden md:flex items-center justify-center shadow-lg z-10 animate-pulse-dot border-4 border-white">
+                  <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
+                </div>
 
                 {/* Content */}
-                <div className={`md:w-1/2 ${idx % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"}`}>
-                  <Card className="p-6 hover:shadow-2xl transition-all duration-500 group hover:-translate-y-2 hover:scale-105 border-2 cursor-pointer">
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <Briefcase className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">
-                          {exp.title}
-                        </h3>
-                        <p className="text-purple-600 font-semibold mb-2">{exp.company}</p>
-                        <div className="flex items-center gap-2 text-slate-500 text-sm mb-4">
-                          <Calendar className="w-4 h-4" />
-                          <span>{exp.period}</span>
+                <div className={`md:w-1/2 ${idx % 2 === 0 ? "md:text-right md:pr-16" : "md:pl-16"}`}>
+                  <Card className="p-6 hover:shadow-2xl transition-all duration-500 group hover:-translate-y-2 border-2 cursor-pointer relative overflow-hidden">
+                    {/* Hover Gradient Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="flex items-start gap-3 mb-4">
+                        <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-md">
+                          <Briefcase className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">
+                            {exp.title}
+                          </h3>
+                          <p className="text-cyan-600 font-semibold mb-2">{exp.company}</p>
+                          <div className="flex items-center gap-2 text-slate-500 text-sm mb-4">
+                            <Calendar className="w-4 h-4" />
+                            <span>{exp.period}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <p className="text-slate-600 mb-4 leading-relaxed font-medium">{exp.description}</p>
-                    
-                    {/* Key Contributions */}
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-slate-700 mb-2">Key Contributions:</h4>
-                      <ul className="space-y-2">
-                        {exp.contributions.map((contribution, contIdx) => (
-                          <li key={contIdx} className="flex items-start gap-2 text-slate-600 text-sm">
-                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span>{contribution}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                      <p className="text-slate-600 mb-4 leading-relaxed font-medium">{exp.description}</p>
+                      
+                      {/* Expandable Key Contributions */}
+                      <button
+                        onClick={() => setExpandedItem(expandedItem === idx ? null : idx)}
+                        className="flex items-center gap-2 text-blue-600 hover:text-cyan-600 font-semibold mb-3 transition-colors group/btn"
+                      >
+                        <span>Key Contributions</span>
+                        <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${expandedItem === idx ? 'rotate-90' : ''} group-hover/btn:translate-x-1`} />
+                      </button>
 
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIdx) => (
-                        <span
-                          key={techIdx}
-                          className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 cursor-pointer"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                      <div className={`overflow-hidden transition-all duration-500 ${expandedItem === idx ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <ul className="space-y-2 mb-4">
+                          {exp.contributions.map((contribution, contIdx) => (
+                            <li key={contIdx} className="flex items-start gap-2 text-slate-600 text-sm animate-fade-in-up" style={{ animationDelay: `${contIdx * 50}ms` }}>
+                              <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>{contribution}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, techIdx) => (
+                          <span
+                            key={techIdx}
+                            className="px-3 py-1 bg-gradient-to-r from-blue-50 to-cyan-50 text-slate-700 rounded-full text-sm font-medium border border-blue-200 hover:from-blue-500 hover:to-cyan-500 hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer hover:scale-110 hover:shadow-md"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </Card>
                 </div>
@@ -193,6 +210,23 @@ export default function Experience() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes pulse-line {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(100vh);
+          }
+        }
+        .animate-pulse-line {
+          animation: pulse-line 3s ease-in-out infinite;
+        }
+        .animate-pulse-dot {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+      `}</style>
     </section>
   );
 }

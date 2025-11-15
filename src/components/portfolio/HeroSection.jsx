@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, ArrowDown, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, MapPin, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -41,10 +41,10 @@ export default function HeroSection() {
       className="min-h-screen relative flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Floating Particles */}
@@ -71,13 +71,17 @@ export default function HeroSection() {
           }`}
         >
           {/* Status Badge */}
-          <div className="flex justify-center mb-6 animate-bounce-slow">
+          <div className="flex justify-center gap-3 mb-6 animate-bounce-slow flex-wrap">
             <Badge className={`${getStatusColor()} text-white px-4 py-2 text-sm font-medium shadow-lg`}>
               <span className="relative flex h-2 w-2 mr-2">
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${getStatusColor()} opacity-75`}></span>
                 <span className={`relative inline-flex rounded-full h-2 w-2 bg-white`}></span>
               </span>
               {EMPLOYMENT_STATUS}
+            </Badge>
+            <Badge className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-2 text-sm font-medium shadow-lg">
+              <Award className="w-4 h-4 mr-2" />
+              5 Years Experience
             </Badge>
           </div>
 
@@ -88,7 +92,7 @@ export default function HeroSection() {
 
           {/* Animated Title */}
           <div className="h-20 md:h-24 mb-6 flex items-center justify-center">
-            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
               {titles[titleIndex]}
             </h2>
           </div>
@@ -100,7 +104,7 @@ export default function HeroSection() {
           {/* Location */}
           <div className="flex items-center justify-center gap-2 text-slate-600 mb-6 animate-fade-in-up">
             <MapPin className="w-5 h-5" />
-            <span className="text-lg">Dubai, DIP 1</span>
+            <span className="text-lg">Dubai, UAE</span>
           </div>
 
           <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto animate-fade-in-up">
@@ -112,7 +116,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap gap-4 justify-center mb-12 animate-fade-in-up">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-8 hover:shadow-2xl transition-all hover:scale-105 animate-pulse-slow"
+              className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full px-8 hover:shadow-2xl transition-all hover:scale-105 animate-pulse-slow"
               onClick={() => scrollToSection("projects")}
             >
               View My Work
@@ -128,7 +132,7 @@ export default function HeroSection() {
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-4 justify-center mb-16 animate-fade-in-up">
+          <div className="flex gap-6 justify-center mb-20 animate-fade-in-up">
             <a
               href="https://github.com/chrysanly"
               target="_blank"
@@ -149,7 +153,7 @@ export default function HeroSection() {
               href="mailto:chrys.romao21@gmail.com"
               className="p-3 bg-white rounded-full shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 hover:rotate-6"
             >
-              <Mail className="w-6 h-6 text-purple-600" />
+              <Mail className="w-6 h-6 text-cyan-600" />
             </a>
           </div>
         </div>
