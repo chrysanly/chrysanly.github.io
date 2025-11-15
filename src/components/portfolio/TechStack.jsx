@@ -265,24 +265,10 @@ export default function TechStack() {
         <div className="mt-20 max-w-4xl mx-auto">
           <Card className="p-8 md:p-12 bg-gradient-to-br from-slate-50 to-slate-100 border-2 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
             <h3 className="text-3xl font-bold mb-6 text-slate-800">About Me</h3>
-            <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                <p className="text-sm text-slate-500 mb-1">Age</p>
-                <p className="text-2xl font-bold text-slate-800">28</p>
-              </div>
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                <p className="text-sm text-slate-500 mb-1">Date of Birth</p>
-                <p className="text-lg font-bold text-slate-800">June 24, 1997</p>
-              </div>
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                <p className="text-sm text-slate-500 mb-1">Gender</p>
-                <p className="text-2xl font-bold text-slate-800">Male</p>
-              </div>
-            </div>
             <div className="space-y-4 text-slate-700 text-lg leading-relaxed">
               <p>
                 I'm <strong>Chrysanly John Corpuz Roma</strong>, a passionate fullstack developer 
-                currently based in <strong>Dubai, DIP 1</strong>, with expertise in building scalable 
+                currently based in <strong>Dubai</strong>, with expertise in building scalable 
                 web applications using modern technologies.
               </p>
               <p>

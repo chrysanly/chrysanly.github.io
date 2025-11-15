@@ -4,6 +4,7 @@ import path from "path";
 
 // Vite config
 export default defineConfig({
+  base: "/portfolio",
   plugins: [react()],
   resolve: {
     alias: {

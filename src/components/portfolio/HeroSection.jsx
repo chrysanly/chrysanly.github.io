@@ -128,9 +128,9 @@ export default function HeroSection() {
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-4 justify-center animate-fade-in-up">
+          <div className="flex gap-4 justify-center mb-16 animate-fade-in-up">
             <a
-              href="https://github.com"
+              href="https://github.com/chrysanly"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 hover:rotate-6"
@@ -138,7 +138,7 @@ export default function HeroSection() {
               <Github className="w-6 h-6 text-slate-700" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/chrysanly-john-roma-7517012a8/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 hover:rotate-6"

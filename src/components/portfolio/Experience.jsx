@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar } from "lucide-react";
+import { Briefcase, Calendar, CheckCircle } from "lucide-react";
 
 export default function Experience() {
   const [visibleItems, setVisibleItems] = useState([]);
@@ -31,36 +31,82 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "Senior Fullstack Developer",
-      company: "Tech Solutions Inc.",
-      period: "2022 - Present",
-      description:
-        "Leading development of enterprise web applications using Laravel and React. Architecting scalable solutions and mentoring junior developers.",
-      technologies: ["Laravel", "React", "Node.js", "PostgreSQL"],
+      title: "Sr. PHP Developer / CRM Project Lead",
+      company: "OmniQuest PH (Unilab) - NDA Contract",
+      period: "March 2025 – August 2025",
+      description: "Led development and maintenance of a complex CRM integrating five connected systems for Unilab.",
+      contributions: [
+        "Led multi-system project as Lead Developer, coordinating enhancements across five interconnected platforms",
+        "Optimized stored procedures for Tableau data analysis, improving report accuracy and performance",
+        "Developed new stored procedures supporting web enhancements and business requirements",
+        "Enhanced dynamic registration modules supporting multiple branding styles across events",
+        "Improved REST API performance and fixed form submission bugs",
+        "Created automated code checkup shell script using PHP CodeSniffer",
+        "Maintained and upgraded CodeIgniter 2 & 3 legacy systems",
+        "Authored comprehensive documentation for local setup and dynamic form workflows"
+      ],
+      technologies: ["PHP", "CodeIgniter 2/3", "MySQL", "REST API", "Tableau", "Shell Script"],
     },
     {
-      title: "Fullstack Developer",
-      company: "Digital Innovations Ltd.",
-      period: "2020 - 2022",
-      description:
-        "Developed and maintained multiple client projects using CodeIgniter and Vue.js. Implemented RESTful APIs and optimized database performance.",
-      technologies: ["CodeIgniter", "Vue.js", "MySQL", ".NET"],
+      title: "Web Developer / Project Lead",
+      company: "ThinkBit Solutions Phils. Inc. (NDA Contract)",
+      period: "November 2022 – March 2025",
+      description: "Developed and maintained full-stack web applications using Laravel and modern JavaScript frameworks in Agile environment.",
+      contributions: [
+        "Led backend development with dynamic, data-driven page rendering (Barrantes - Laravel 10)",
+        "Integrated Google Maps API with real-time location tracking using five-minute interval slider",
+        "Built real-time chat, post, and comment system with Pusher broadcasting",
+        "Developed scalable Firebase push notification system with reusable job queue",
+        "Integrated Monday.com API for workflow synchronization",
+        "Implemented comprehensive audit logging system for user activity monitoring",
+        "Applied Test-Driven Development (TDD) with PHPUnit for controller testing",
+        "Led GNIP project as Lead Developer, mentoring junior developers on best practices",
+        "Built role-based authentication with detailed access control using Laravel Livewire v2",
+        "Configured Amazon S3 for secure file storage through Laravel Storage system",
+        "Designed complex multi-level form workflows with nested subforms and approval hierarchies",
+        "Upgraded Laravel v5 to latest version on Barcast project while maintaining backward compatibility",
+        "Optimized database performance replacing inefficient loops with efficient query patterns",
+        "Implemented eager loading, pagination, and query optimization reducing server load",
+        "Integrated Twilio for OTP verification and secure messaging",
+        "Applied Service classes, Enums, and Traits for clean, modular backend architecture"
+      ],
+      technologies: ["Laravel 10", "Livewire v2", "React", "Vue.js", "MySQL", "PostgreSQL", "AWS S3", "Pusher", "Firebase", "Twilio", "PHPUnit", "Monday.com API"],
     },
     {
-      title: "Web Developer",
-      company: "Creative Web Studio",
-      period: "2018 - 2020",
-      description:
-        "Built responsive websites and web applications using Yii2 framework. Collaborated with design teams to create pixel-perfect implementations.",
-      technologies: ["Yii2", "JavaScript", "Bootstrap", "jQuery"],
+      title: "Junior Software Engineer",
+      company: "TourismoPH (NDA Contract)",
+      period: "September 2020 – October 2022",
+      description: "Full-Stack Developer focusing on Laravel, ReactJS, Angular, and Node.js for internal and client-based systems.",
+      contributions: [
+        "Developed user booking system with real-time availability and transaction tracking",
+        "Implemented JWT-based user authentication (login, registration, password reset, profile management)",
+        "Built RESTful APIs for booking operations with optimized database queries",
+        "Created vendor onboarding, service management, and subscription plan features",
+        "Integrated Swagger for API testing and documentation",
+        "Migrated Laravel 7 CMS to Node.js-based API structure",
+        "Enhanced vendor dashboards using Angular and RESTful API integration",
+        "Built backend APIs for membership registration and management systems",
+        "Implemented CSV bulk upload for members using Node.js streams",
+        "Developed region-based and category-based dynamic reporting with ReactJS"
+      ],
+      technologies: ["Node.js", "ReactJS", "Angular", "Laravel 7", "PostgreSQL", "MySQL", "JWT", "Swagger", "REST API"],
     },
     {
-      title: "Junior Developer",
-      company: "StartUp Tech",
-      period: "2016 - 2018",
-      description:
-        "Started my career building small to medium-sized web applications. Gained experience in full development lifecycle and agile methodologies.",
-      technologies: ["PHP", "HTML/CSS", "JavaScript", "MySQL"],
+      title: "IT & Operations Coordinator / Office Administrator",
+      company: "V. Zuniga Logistics (Pepsi Warehouse)",
+      period: "November 2018 – December 2020",
+      description: "Managed warehouse operations, staff coordination, and IT systems ensuring accurate tracking, reporting, and inventory management.",
+      contributions: [
+        "Encoded and monitored daily in-and-out track bookings for warehouse operations",
+        "Managed personnel including drivers, checkers, and warehouse staff",
+        "Generated custom time reports (12 PM, 3 PM, 6 PM) delivered via email to management",
+        "Compiled weekend and month-end summary reports (verbal, written, and email formats)",
+        "Conducted daily inventory counting and documentation ensuring accuracy",
+        "Utilized ASDOS and ZAP Systems for inventory management and tracking",
+        "Provided IT support troubleshooting hardware and software issues",
+        "Led migration to ZAP System creating operational workflows and standard procedures"
+      ],
+      technologies: ["ASDOS System", "ZAP System", "Inventory Management", "MS Office"],
     },
   ];
 
@@ -115,7 +161,21 @@ export default function Experience() {
                         </div>
                       </div>
                     </div>
-                    <p className="text-slate-600 mb-4 leading-relaxed">{exp.description}</p>
+                    <p className="text-slate-600 mb-4 leading-relaxed font-medium">{exp.description}</p>
+                    
+                    {/* Key Contributions */}
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-slate-700 mb-2">Key Contributions:</h4>
+                      <ul className="space-y-2">
+                        {exp.contributions.map((contribution, contIdx) => (
+                          <li key={contIdx} className="flex items-start gap-2 text-slate-600 text-sm">
+                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span>{contribution}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIdx) => (
                         <span
